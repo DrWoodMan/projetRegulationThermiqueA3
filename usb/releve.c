@@ -1,26 +1,18 @@
 #include <windows.h>
-#include "lib/ftd2xx.h"
+
 #include "releve.h"
 
-temp_t releve(){
+temp_t releve(FT_HANDLE ftHandle,FT_STATUS ftStatus){
     //Varriables :
     int indice=0;
     short tempExt=0,tempInt=0; 
     temp_t temperature;
 
-    FT_HANDLE ftHandle;
-    FT_STATUS ftStatus;
     DWORD RxBytes=6;
     DWORD BytesReceived;
     char RxBuffer[6]={0};
     char octets[6]={0};
-    //verification port usb connecte
-    ftStatus = FT_Open(0,&ftHandle);
-        if (ftStatus != FT_OK) {
-            // FT_Open OK, use ftHandle to access device
-            
-            return ;
-        }
+
     //lecture des 6 octets
     ftStatus = FT_Read(ftHandle,RxBuffer,RxBytes,&BytesReceived);
     if (ftStatus == FT_OK) {
@@ -31,7 +23,7 @@ temp_t releve(){
            printf("\nechec de la lecture");
         }
      }
-    FT_Close(ftHandle);
+    
    
     //Trie des octets par rapport au premier octet de la température Ext :
     for(int i=0;i<6;i++){
