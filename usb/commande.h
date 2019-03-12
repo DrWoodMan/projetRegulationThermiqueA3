@@ -1,2 +1,2 @@
-	#include "define.h" 
 
+void commande(int puissance);
