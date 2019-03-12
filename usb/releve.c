@@ -3,21 +3,22 @@
 #include "releve.h"
 
 temp_t releve(){
+    //Varriables :
     int indice=0;
-    short tempExt=0,tempInt=0; // 16 OCTET
+    short tempExt=0,tempInt=0; 
     temp_t temperature;
-    //todo faire la syncronisation en usb
+
     FT_HANDLE ftHandle;
     FT_STATUS ftStatus;
     DWORD RxBytes=6;
     DWORD BytesReceived;
     char RxBuffer[6]={0};
     char octets[6]={0};
-    //verif port usb connecte
+    //verification port usb connecte
     ftStatus = FT_Open(0,&ftHandle);
         if (ftStatus != FT_OK) {
             // FT_Open OK, use ftHandle to access device
-            printf("\nechec de la lecture usb");
+            
             return ;
         }
     //lecture des 6 octets
@@ -48,6 +49,7 @@ temp_t releve(){
     //traitement des octets trie
     tempExt=((octets[0] &0x0F)<<8)|((octets[1] &0x0F)<<4)|(octets[2]&0x0F);
     tempInt=((octets[3] &0x0F)<<8)|((octets[4] &0x0F)<<4)|(octets[5]&0x0F);
+    //Température absolue en °C = -39,64 + 0,04 x SOT
     temperature.interieure=(float)tempInt*0.04 -39.64;
     temperature.exterieure=(float)tempExt*0.04 -39.64;
     return temperature;

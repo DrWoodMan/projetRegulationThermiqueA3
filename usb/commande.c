@@ -1,29 +1,33 @@
 #include "commande.h"
+#include "lib/ftd2xx.h"
 void commande(int puissance){
-   /* FT_HANDLE ftHandle;
+    //Varriables :
+    FT_HANDLE ftHandle;
     FT_STATUS ftStatus;
     DWORD BytesWritten;
-    char TxBuffer[256]; // Contains data to write to device
-    char data;
-    if(puissance=0){
-        data = 0
+    char TxBuffer[1]; 
+    //Traitement donnée puissance
+    if(puissance==0){
+        TxBuffer[0] = 0;
     }else{
-        data = puissance |0x80 
+        TxBuffer[0] = (char)puissance&0x7F;
     }
-    TxBuffer[0]=data;
+    //verif port usb connecte
     ftStatus = FT_Open(0, &ftHandle);
     if(ftStatus != FT_OK) {
-        // FT_Open failed
+        printf("\nEchec de la lecture usb");
         return;
     }
+    //Ecriture de la puissance
     ftStatus = FT_Write(ftHandle, TxBuffer, sizeof(TxBuffer), &BytesWritten);
     if (ftStatus == FT_OK) {
-        // FT_Write OK
+        printf("\nValeur ecrite");
     }
     else {
-        // FT_Write Failed
+        printf("\nErreur d'ecriture");
     }
+    FT_Close(ftHandle);
 }
-FT_Close(ftHandle)*/
-}
+
+
 
