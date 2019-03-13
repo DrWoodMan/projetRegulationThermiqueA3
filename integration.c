@@ -28,4 +28,5 @@ void integrationTest(int regul, temp_t tInit, int nIterations){
     tempN = simCalc(cmd, param_sim);
   }
    simDestruct(param_sim);
+   free(integrale);
 }

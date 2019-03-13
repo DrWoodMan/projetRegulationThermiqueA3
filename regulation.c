@@ -39,7 +39,7 @@ float regulation(int regul, float csgn, float tN, float tNm1, float* integrale){
 
 			d = (tNm1 - tN) / dt;
 
-			cmd = p + *integrale*0.1 + d*0.1;
+			cmd = p*2 + *integrale*0.5 + d*0.1;
 			if(cmd<0){
 				cmd=0;
 			}else if(cmd>100){
