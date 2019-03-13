@@ -7,7 +7,7 @@
  #include "regulation.h"
 
 int main(){
-	/*
+	
 	temp_t temperature;
 	temperature.exterieure = 15.0;
 	temperature.interieure = 17.0;
@@ -22,8 +22,7 @@ int main(){
 		temperature=simCalc(puissance,monSimulateur_ps); // simulation de l'environnement
 	}
 	simDestruct(monSimulateur_ps); // destruction de simulateur
-	*/
-float tab[] = {15, 16, 17};
-	printf("%f\n", regulationTest(2, 19, tab, 3));
+	
+
 	return EXIT_SUCCESS;
 }
