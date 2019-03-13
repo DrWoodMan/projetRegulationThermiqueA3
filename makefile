@@ -1,4 +1,4 @@
-PROJET = c-pas-sorcier
+PROJET = test
 
 CFLAGS = -g -Wall -Wextra -Os -std=gnu11
 LDFLAGS = -lm #-lSDL -lSDL_image -lSDL_ttf -lSDL_mixer -lSDL_gfx -lm -lGL -lGLU
