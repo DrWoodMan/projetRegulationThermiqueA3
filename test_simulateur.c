@@ -11,7 +11,7 @@ int main(){
 	temp_t temperature;
 	temperature.exterieure = 15.0;
 	temperature.interieure = 17.0;
-	visualisationT(temperature);
+	/*visualisationT(temperature);
 	printf("test-sim : %2.2f\n",consigne(20.00));
 	visualisationC(0.0);
 	
@@ -22,7 +22,7 @@ int main(){
 		temperature=simCalc(puissance,monSimulateur_ps); // simulation de l'environnement
 	}
 	simDestruct(monSimulateur_ps); // destruction de simulateur
-	
-
+	*/
+	integrationTest(2, temperature, 5);
 	return EXIT_SUCCESS;
 }

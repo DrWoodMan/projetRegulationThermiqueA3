@@ -11,7 +11,7 @@ void integrationTest(int regul, temp_t tInit, int nIterations){
   float csgn, cmd;
   struct simParam_s* param_sim;
 	float* integrale = malloc(sizeof(float));
-
+  int i;
   tempNm1 = tInit;
   tempN = tInit;
   cmd = 100.0;
@@ -19,15 +19,13 @@ void integrationTest(int regul, temp_t tInit, int nIterations){
 
   param_sim = simConstruct(tInit);
   csgn = 0;
-  do{
+  for(i=0;i<nIterations;i++){
     visualisationT(tempN);
     csgn = consigne(csgn);
     cmd = regulation(regul, csgn, tempN.interieure, tempNm1.interieure, integrale);
     visualisationC(cmd);
     tempNm1 = tempN;
     tempN = simCalc(cmd, param_sim);
-  }while(csgn > 5);
-
-  
-  
+  }
+   simDestruct(param_sim);
 }

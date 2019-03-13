@@ -1,7 +1,7 @@
-PROJET = test
+PROJET = test.exe
 
 CFLAGS = -g -Wall -Wextra -Os -std=gnu11
-LDFLAGS = -lm #-lSDL -lSDL_image -lSDL_ttf -lSDL_mixer -lSDL_gfx -lm -lGL -lGLU
+LDFLAGS = -lm 
 
 SRC = $(wildcard *.c)
 NOM = $(basename $(notdir $(SRC)))
