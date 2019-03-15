@@ -35,13 +35,15 @@ void integrationTest(int regul, temp_t tInit, int nIterations){
 
   param_sim = simConstruct(tInit);
   csgn = 0;
-  for(i=0; i<nIterations; i++){
+
+  for(i=0 ; i<nIterations ; i++){
     visualisationT(tempN);
     csgn = consigne(csgn);
     cmd = regulation(regul, csgn, tempN.interieure, tempNm1.interieure, integrale,2);
     visualisationC(cmd);
     tempNm1 = tempN;
     tempN = simCalc(cmd, param_sim);
+
     if(csgn<5){
       i=nIterations+1;
     } 

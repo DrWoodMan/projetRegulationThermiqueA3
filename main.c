@@ -36,6 +36,7 @@ int main(/*int argc, char *argv[]*/){
       mode_PID=3;// intégration en USB
     */
     mode_PID=3;
+    
     if(csgn<5){
       return 0;
     }
@@ -43,7 +44,8 @@ int main(/*int argc, char *argv[]*/){
     //Suppresion des verrous s'ils existent encore
     remove(".verrouData");
     remove(".verrouConsigne");
-    //Programme lancer
+
+    //Programme lancé
     while(1){    
         visualisationT(temperatures);
         csgn = consigne(csgn);

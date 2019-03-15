@@ -29,7 +29,9 @@ float consigne(float csgn){
       fclose(fp);
 
       fp = fopen("consigne.txt", "r");
+
       if(fgets(fileContent, 6, fp)){}
+      
       if(fileContent[strlen(fileContent) - 1] == '\n'){
          fileContent[strlen(fileContent) - 1] = '\0';
       }

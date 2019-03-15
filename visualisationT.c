@@ -30,6 +30,7 @@ void visualisationT(temp_t myTemp){
     fclose(fp);
 
     fp = fopen("data.txt", "r");
+    
     while(fgets(fileContent[i], 7, fp)){
       if(fileContent[i][strlen(fileContent[i]) - 1] == '\n'){
         fileContent[i][strlen(fileContent[i]) - 1] = '\0';
