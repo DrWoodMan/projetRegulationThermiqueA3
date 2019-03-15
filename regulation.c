@@ -6,6 +6,7 @@
 		*integrale = 0;
 		
 		int i = 0;
+		
 		for(i = 0 ; i < nT ; i++){
 			cmd = regulation(regul, csgn, tabT[i], tabT[i > 0 ? i - 1 : i], integrale,1);
 		} 
