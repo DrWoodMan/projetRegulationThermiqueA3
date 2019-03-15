@@ -1,5 +1,5 @@
 #include "releve.h"
-//la fonction releve() revoie la températures lue en USB avec 6 octets envoye avec les variable ftHandle et ftStatus
+//la fonction releve() renvoie les températures lues en USB avec 6 octets.  Reçoit en paramètre les variable ftHandle et ftStatus.
 temp_t releve(FT_HANDLE ftHandle,FT_STATUS ftStatus){
     //Varriables :
     int indice=0;
@@ -41,7 +41,7 @@ temp_t releve(FT_HANDLE ftHandle,FT_STATUS ftStatus){
              indice=0;            
          }
      }
-    //Traitement des octets trie
+    //Traitement des octets triés
     tempExt=((octets[0] &0x0F)<<8)|((octets[1] &0x0F)<<4)|(octets[2]&0x0F);
     tempInt=((octets[3] &0x0F)<<8)|((octets[4] &0x0F)<<4)|(octets[5]&0x0F);
     //Température absolue en °C = -39,64 + 0,04 x SOT
