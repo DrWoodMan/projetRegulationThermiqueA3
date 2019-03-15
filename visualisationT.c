@@ -1,5 +1,21 @@
 #include "visualisationT.h"
 
+/***************************************************************
+ * 
+ * nom :          visualisationT
+ * 
+ * fonction :     Si le fichier ".verrourData" n'existe pas
+ *                le creer, écrit dans "data.txt" les valeurs
+ *                contenues dans la myTemp.
+ *                Supprime ensuite le fichier ".verrourConsigne".
+ *                Ne fait rien si le fichier ".verrourData" existe.
+ * 
+ * paramètres :   (stuct temp_t) myTemp : température intérieure et extérieure
+ *                
+ * retour :       
+ * 
+ ***************************************************************/
+
 void visualisationT(temp_t myTemp){
   
   if( access( ".verrouData", F_OK ) != -1 ){

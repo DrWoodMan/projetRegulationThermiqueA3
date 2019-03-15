@@ -1,5 +1,19 @@
 #include "consigne.h"
-
+/***************************************************************
+ * 
+ * nom :          consigne
+ * 
+ * fonction :     Si le fichier ".verrourConsigne" n'existe pas
+ *                le creer, lit la valeur contenue dans le fichier
+ *                "cnsigne.txt", supprime le fichier ".verrourConsigne"
+ *                puis retourne la valeur.
+ *                Sinon retroune la valeur passée en paramètre.
+ * 
+ * paramètres :   (float) csgn : température de consigne
+ *                
+ * retour :       (float) valeur de consigne.
+ * 
+ ***************************************************************/
 float consigne(float csgn){
 
    if( access( ".verrouConsigne", F_OK ) != -1 ){
