@@ -7,7 +7,7 @@
 #include "visualisationC.h"
 #include "consigne.h"
 
-int main(/*int argc, char *argv[]*/){
+int main(){
     //Varriables :
     float* integrale = malloc(sizeof(float));
     float csgn=0, cmd;
@@ -17,11 +17,6 @@ int main(/*int argc, char *argv[]*/){
     temp_t temperatures, temperatures_Acienne;
 
    //Ouverture et verification port usb connecte
-   /* ftStatus = FT_Open(0, &ftHandle);
-    if(ftStatus != FT_OK) {
-        printf("\nEchec de la lecture usb");
-        return;
-    } */
     *integrale = 0;
     cmd=0;
     temperatures = releve(ftHandle,ftStatus);
@@ -30,13 +25,9 @@ int main(/*int argc, char *argv[]*/){
     csgn = consigne(csgn);
     // TOR = 1 / PID = 2
     mode=2;
-    /*
-      mode_PID=1;// tests unitaires
-      mode_PID=2;// intégration dans le simulateur
-      mode_PID=3;// intégration en USB
-    */
+
     mode_PID=3;
-    
+
     if(csgn<5){
       return 0;
     }
@@ -46,7 +37,7 @@ int main(/*int argc, char *argv[]*/){
     remove(".verrouConsigne");
 
     //Programme lancé
-    while(1){    
+    do{    
         visualisationT(temperatures);
         csgn = consigne(csgn);
         cmd = regulation(mode, csgn, temperatures.interieure, temperatures_Acienne.interieure, integrale,mode_PID);
@@ -57,8 +48,8 @@ int main(/*int argc, char *argv[]*/){
         printf("\next :%lf int :%lf\n",temperatures.exterieure,temperatures.interieure);
         printf("\nconsignes:%lf\n",csgn);
         printf("\npuissance en :%f\n",cmd);
-    } 
-    //FT_Close(ftHandle);
+    }while(csgn > 5);
+
     free(integrale);
     return 0;
 }
