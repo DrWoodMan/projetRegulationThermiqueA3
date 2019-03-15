@@ -5,6 +5,22 @@
 #include "simulateur.h"
 #include "consigne.h"
 
+/***************************************************************
+ * 
+ * nom :          integrationTest
+ * 
+ * fonction :     Simule le modèle thermique.
+ *                Fait appel aux différentes fonctions : visualisationT,
+ *                consigne, regulation, visualisationC.
+ * 
+ * paramètres :   (int) regul : mode de régulation, 1 pour ToR, 2 pour PID
+ * 								(struct temp_t) tInit : température initiale
+ *                (int) nIterations : nombre d'itérations
+ *                
+ * retour :       
+ * 
+ ***************************************************************/
+
 void integrationTest(int regul, temp_t tInit, int nIterations){
 
   temp_t tempN, tempNm1;
