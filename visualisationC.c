@@ -24,6 +24,7 @@ void visualisationC(float puissance_f){
 
    if( access( ".verrouData", F_OK ) != -1 ){
     // Fichier existe
+    printf("Fichier \"data.txt\" inaccessible.");
    }else{     
     // Fichier n'existe pas
     int i = 0;
@@ -50,7 +51,7 @@ void visualisationC(float puissance_f){
 
     if(puissance_f == 0){
          fprintf(fp, "%s", "false");
-         
+
       }else if(puissance_f > 0 && puissance_f <= 100){
          fprintf(fp, "%s", "true");
       }

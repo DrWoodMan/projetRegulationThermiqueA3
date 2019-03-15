@@ -20,6 +20,7 @@ void visualisationT(temp_t myTemp){
   
   if( access( ".verrouData", F_OK ) != -1 ){
     // Fichier existe
+    printf("Fichier \"data.txt\" inaccessible.");
   }else{
     // Fichier n'existe pas
     int i = 0;
@@ -30,7 +31,7 @@ void visualisationT(temp_t myTemp){
     fclose(fp);
 
     fp = fopen("data.txt", "r");
-    
+
     while(fgets(fileContent[i], 7, fp)){
       if(fileContent[i][strlen(fileContent[i]) - 1] == '\n'){
         fileContent[i][strlen(fileContent[i]) - 1] = '\0';

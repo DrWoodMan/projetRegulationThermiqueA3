@@ -18,6 +18,7 @@ float consigne(float csgn){
 
    if( access( ".verrouConsigne", F_OK ) != -1 ){
       // Fichier existe
+      printf("Fichier \"consigne.txt\" inaccessible.");
       return csgn;
    }else{
       // Fichier n'existe pas
@@ -31,7 +32,7 @@ float consigne(float csgn){
       fp = fopen("consigne.txt", "r");
 
       if(fgets(fileContent, 6, fp)){}
-      
+
       if(fileContent[strlen(fileContent) - 1] == '\n'){
          fileContent[strlen(fileContent) - 1] = '\0';
       }
