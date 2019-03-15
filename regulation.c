@@ -36,7 +36,7 @@
 
 float regulation(int regul, float csgn, float tN, float tNm1, float* integrale, int mode_PID){
 	int dt = 10;
-	float p, i, d, cmd;
+	float p, i, d, cmd=0;
 
 	switch (regul){
 		case 1:
@@ -65,6 +65,8 @@ float regulation(int regul, float csgn, float tN, float tNm1, float* integrale, 
 				cmd = p + *integrale*0.1 + d*0.1;
 			}else if(mode_PID==2){
 				cmd = p*6 + *integrale*0.5 + d*0.1;
+			}else if(mode_PID==3){
+				cmd=p*6 + *integrale*0.1 + d*0.001;
 			}
 			if(cmd<0){
 				cmd=0;

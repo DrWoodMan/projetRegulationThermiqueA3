@@ -1,5 +1,5 @@
 #include "commande.h"
-/* La fonction commande prend en entré la puisance en %  et fthandle , ftstatus pour la liaison usb.
+/* La fonction commande prend en entré la puisance en %  et fthandle, ftstatus pour la liaison usb.
    La fonction permet d'écrire un octet qui renvoie la puissance voulu à la carte.
 */
 void commande(FT_HANDLE ftHandle,FT_STATUS ftStatus,float puissance){
